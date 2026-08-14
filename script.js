@@ -83,8 +83,15 @@ function productCard(product) {
 
 function updateProgress() {
   const done = plans[currentDuration].products.filter(product => completed.has(`${currentDuration}:${product.key}`)).length;
-  document.querySelector("#remaining-count").textContent = String(3 - done);
-  document.querySelector("#progress-bar").style.width = `${(done / 3) * 100}%`;
+  const total = plans[currentDuration].products.length;
+  document.querySelector("#checked-count").textContent = String(done);
+  document.querySelector("#progress-bar").style.width = `${(done / total) * 100}%`;
+}
+
+function showToast(message) {
+  toast.textContent = message;
+  toast.classList.add("show");
+  window.setTimeout(() => toast.classList.remove("show"), 2800);
 }
 
 function renderPlan(duration) {
@@ -129,12 +136,10 @@ productList.addEventListener("click", event => {
   const key = button.dataset.key;
   const link = BOOKING_LINKS[currentDuration][key];
   completed.add(`${currentDuration}:${key}`);
-  if (link) window.open(link, "_blank", "noopener,noreferrer");
-  else {
-    toast.textContent = "제휴 예약 링크를 연결하면 판매처의 가격·조건 페이지로 이동합니다.";
-    toast.classList.add("show");
-    window.setTimeout(() => toast.classList.remove("show"), 2800);
-  }
+  if (link) {
+    window.open(link, "_blank", "noopener,noreferrer");
+    showToast("판매처가 새 창에서 열렸습니다. 실제 예약 완료 여부는 판매처에서 확인하세요.");
+  } else showToast("제휴 예약 링크를 연결하면 판매처의 가격·조건 페이지로 이동합니다.");
   renderPlan(currentDuration);
 });
 
