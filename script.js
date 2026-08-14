@@ -1,5 +1,6 @@
 const AFFILIATE_LINKS = Object.freeze({
   stay: "https://kr.trip.com/hotels/list?city=734&display=%EA%B5%90%ED%86%A0&optionId=734&optionType=City&optionName=%EA%B5%90%ED%86%A0&Allianceid=9886696&SID=328568199&trip_sub1=autumnkyoto_stay&trip_sub3=D19242778",
+  osakaStay: "https://kr.trip.com/hotels/osaka-hotels-list-219/?Allianceid=9886696&SID=328568199&trip_sub1=autumnkyoto_osaka_stay&trip_sub3=D19242778",
   transport: "https://kr.trip.com/trains/tt-common/ttlist?departurecitycode=JP03869&arrivalcitycode=JP00531&Allianceid=9886696&SID=328568199&trip_sub1=autumnkyoto_transport&trip_sub3=D19242778",
   experience: "https://kr.trip.com/things-to-do/experiences/kyoto/?Allianceid=9886696&SID=328568199&trip_sub1=autumnkyoto_experience&trip_sub3=D19242778",
   evening: "https://kr.trip.com/things-to-do/detail/106174530/?Allianceid=9886696&SID=328568199&trip_sub1=autumnkyoto_evening&trip_sub3=D19242778"
@@ -66,11 +67,87 @@ const productImages = {
   evening: "kyoto-booking-night.png"
 };
 
+const LOCAL_PLACES = Object.freeze({
+  kiyomizu: {
+    kicker: "교토 택시기사 이와마 · HIGASHIYAMA",
+    title: "아침 6시, 기요미즈데라",
+    intro: "관광객이 몰리기 전의 고요와 아침빛을 먼저 만나는 교토의 대표적인 시간 전략입니다. 현지 택시기사 이와마는 개문 직후와 차완자카 접근을 권합니다.",
+    time: "개문 직후 이른 아침",
+    route: "차완자카 → 기요미즈데라 → 산넨자카",
+    tip: "상점은 아직 닫혀 있을 수 있으니 풍경을 먼저 보고, 식사와 쇼핑은 내려온 뒤에 즐기세요.",
+    image: "pexels-kiyomizudera-hero.png",
+    source: "https://kyoto.travel/en/travel-inspiration/11-secret-tips-for-enjoying-kyoto-from-a-local-taxi-driver/"
+  },
+  east: {
+    kicker: "교토 택시기사 이와마 · EAST KYOTO",
+    title: "이마쿠마노 관음사와 운류인",
+    intro: "유명 사찰 사이에서도 한결 차분한 동부의 가을입니다. 교토 현지 택시기사가 단풍과 고요를 함께 누릴 곳으로 꼽은 두 사찰을 한 권역으로 묶었습니다.",
+    time: "오전 또는 늦은 오후",
+    route: "이마쿠마노 관음사 → 센뉴지 경내 → 운류인",
+    tip: "유명 사찰을 많이 넣기보다 이 권역에서 두 곳만 천천히 둘러보는 편이 좋습니다.",
+    image: "kyoto-temple-gate.png",
+    source: "https://kyoto.travel/en/travel-inspiration/11-secret-tips-for-enjoying-kyoto-from-a-local-taxi-driver/"
+  },
+  ohara: {
+    kicker: "교토 거주 필자 애비 · OHARA",
+    title: "오하라에서 속도를 낮추기",
+    intro: "산젠인의 붉은 단풍과 이끼 정원을 보고 마을길을 따라 잣코인까지 걷는 북쪽 교토의 느린 반나절입니다.",
+    time: "오전 출발 · 반나절 이상",
+    route: "산젠인 → 오하라 마을길 → 잣코인",
+    tip: "두 사찰은 계곡 양쪽에 있으므로 돌아가는 버스 시각을 먼저 확인하세요.",
+    image: "kyoto-booking-stay.png",
+    source: "https://kyoto.travel/en/hidden-gems/ohara-tranquil-getaway-to-the-north-of-kyoto/"
+  },
+  takao: {
+    kicker: "교토시 공식 관광 가이드 · TAKAO",
+    title: "기요타키강과 다카오의 산사",
+    intro: "시내보다 계절이 조금 먼저 찾아오는 산과 강의 교토입니다. 오래된 산사와 기요타키강을 함께 걸으며 선명한 단풍을 만납니다.",
+    time: "시내보다 이른 단풍 시기",
+    route: "사이묘지 또는 진고지 → 기요타키강 산책",
+    tip: "돌계단이 많아 세 곳을 다 보기보다 두 곳만 선택하고 편한 신발을 준비하세요.",
+    image: "kyoto-arashiyama.png",
+    source: "https://kyoto.travel/en/hidden-gems/riverside-dining-in-takao/"
+  },
+  west: {
+    kicker: "교토 택시기사 이와마 · WEST KYOTO",
+    title: "대나무숲 그다음의 아라시야마",
+    intro: "사람이 몰리는 대나무숲을 지나 사가토리이모토의 오래된 거리와 오타기 넨부쓰지 또는 로쿠오인으로 시선을 넓히는 서부 교토입니다.",
+    time: "오전, 대나무숲 이후",
+    route: "사가토리이모토 → 오타기 넨부쓰지 또는 로쿠오인",
+    tip: "두 사찰은 방향이 달라 한 곳을 골라 주변 골목과 함께 걷는 구성이 좋습니다.",
+    image: "kyoto-autumn-hero.png",
+    source: "https://kyoto.travel/en/travel-inspiration/11-secret-tips-for-enjoying-kyoto-from-a-local-taxi-driver/"
+  },
+  yamashina: {
+    kicker: "교토시 공식 관광 가이드 · YAMASHINA",
+    title: "비샤몬도와 야마시나 운하",
+    intro: "단풍에 둘러싸인 비샤몬도를 보고 운하를 따라 걷는 동쪽 관문의 산책입니다. 대표 관광지와 다른 생활권의 교토를 만날 수 있습니다.",
+    time: "오전 또는 오후 산책",
+    route: "JR 야마시나역 → 비샤몬도 → 운하 → 미사사기역",
+    tip: "운하 초입 일부는 비포장일 수 있어 비 온 뒤에는 신발에 유의하세요.",
+    image: "kyoto-booking-train.png",
+    source: "https://kyoto.travel/en/destinations/running-course-yamashina/"
+  },
+  nishikyo: {
+    kicker: "교토시 공식 관광 가이드 · RAKUSAI",
+    title: "산 위의 단풍, 요시미네데라",
+    intro: "서남부 산비탈의 넓은 경내에서 단풍과 교토 시내 전망을 함께 보는 곳입니다. 중심부에서 조금 떨어져 있어 일정 자체가 여유로워집니다.",
+    time: "아침 · 반나절",
+    route: "요시미네데라 중심 → 여유가 있으면 오하라노",
+    tip: "산쪽 이동이라 돌아오는 버스 시각을 먼저 잡고 일정을 시작하세요.",
+    image: "kyoto-booking-night.png",
+    source: "https://kyoto.travel/en/hidden-gems/rakusai-a-pilgrimage-to-the-green-of-western-kyoto/"
+  }
+});
+
 let currentDuration = "day";
 const completed = new Set();
 const tabs = [...document.querySelectorAll(".duration-tab")];
 const productList = document.querySelector("#product-list");
 const toast = document.querySelector("#booking-toast");
+const placeModal = document.querySelector("#place-modal");
+const placeModalClose = placeModal.querySelector(".place-modal-close");
+let placeModalReturnFocus = null;
 
 function productCard(product) {
   const isDone = completed.has(`${currentDuration}:${product.key}`);
@@ -92,6 +169,32 @@ function showToast(message) {
   toast.textContent = message;
   toast.classList.add("show");
   window.setTimeout(() => toast.classList.remove("show"), 2800);
+}
+
+function openPlaceModal(key, trigger) {
+  const place = LOCAL_PLACES[key];
+  if (!place) return;
+  document.querySelector("#place-modal-kicker").textContent = place.kicker;
+  document.querySelector("#place-modal-title").textContent = place.title;
+  document.querySelector("#place-modal-intro").textContent = place.intro;
+  document.querySelector("#place-modal-time").textContent = place.time;
+  document.querySelector("#place-modal-route").textContent = place.route;
+  document.querySelector("#place-modal-tip").textContent = place.tip;
+  const modalImage = document.querySelector("#place-modal-image");
+  modalImage.style.backgroundImage = `url("${place.image}")`;
+  modalImage.setAttribute("aria-label", `${place.title} 분위기 이미지`);
+  document.querySelector("#place-modal-link").href = place.source;
+  placeModalReturnFocus = trigger;
+  placeModal.hidden = false;
+  document.body.classList.add("modal-open");
+  placeModalClose.focus();
+}
+
+function closePlaceModal() {
+  if (placeModal.hidden) return;
+  placeModal.hidden = true;
+  document.body.classList.remove("modal-open");
+  if (placeModalReturnFocus) placeModalReturnFocus.focus();
 }
 
 function renderPlan(duration) {
@@ -157,6 +260,37 @@ menuButton.addEventListener("click", () => {
   menuButton.setAttribute("aria-expanded", String(open));
 });
 navigation.querySelectorAll("a").forEach(link => link.addEventListener("click", () => { navigation.classList.remove("open"); menuButton.setAttribute("aria-expanded", "false"); }));
+
+document.querySelector(".local-card-track").addEventListener("click", event => {
+  const card = event.target.closest(".local-card");
+  if (card) openPlaceModal(card.dataset.place, card);
+});
+
+placeModal.querySelectorAll("[data-modal-close]").forEach(control => control.addEventListener("click", closePlaceModal));
+document.addEventListener("keydown", event => {
+  if (placeModal.hidden) return;
+  if (event.key === "Escape") {
+    event.preventDefault();
+    closePlaceModal();
+    return;
+  }
+  if (event.key !== "Tab") return;
+  const focusable = [...placeModal.querySelectorAll("button, a[href]")].filter(element => !element.hasAttribute("disabled"));
+  if (!focusable.length) return;
+  const first = focusable[0];
+  const last = focusable[focusable.length - 1];
+  if (event.shiftKey && document.activeElement === first) {
+    event.preventDefault();
+    last.focus();
+  } else if (!event.shiftKey && document.activeElement === last) {
+    event.preventDefault();
+    first.focus();
+  }
+});
+
+const osakaStayLink = document.querySelector("#osaka-stay-link");
+osakaStayLink.href = AFFILIATE_LINKS.osakaStay;
+osakaStayLink.addEventListener("click", () => showToast("오사카 숙소 판매처가 새 창에서 열립니다. 우메다·신오사카와 교토 왕복 동선을 함께 비교하세요."));
 
 document.querySelector("#year").textContent = new Date().getFullYear();
 renderPlan("day");
