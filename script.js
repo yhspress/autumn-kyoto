@@ -1,8 +1,15 @@
+const AFFILIATE_LINKS = Object.freeze({
+  stay: "https://kr.trip.com/hotels/list?city=734&display=%EA%B5%90%ED%86%A0&optionId=734&optionType=City&optionName=%EA%B5%90%ED%86%A0&Allianceid=9886696&SID=328568199&trip_sub1=autumnkyoto_stay&trip_sub3=D19242778",
+  transport: "https://kr.trip.com/trains/tt-common/ttlist?departurecitycode=JP03869&arrivalcitycode=JP00531&Allianceid=9886696&SID=328568199&trip_sub1=autumnkyoto_transport&trip_sub3=D19242778",
+  experience: "https://kr.trip.com/things-to-do/experiences/kyoto/?Allianceid=9886696&SID=328568199&trip_sub1=autumnkyoto_experience&trip_sub3=D19242778",
+  evening: "https://kr.trip.com/things-to-do/detail/106174530/?Allianceid=9886696&SID=328568199&trip_sub1=autumnkyoto_evening&trip_sub3=D19242778"
+});
+
 const BOOKING_LINKS = {
-  day: { transport: "", experience: "", evening: "" },
-  "1n2d": { stay: "", transport: "", experience: "" },
-  "2n3d": { stay: "", transport: "", experience: "" },
-  "3n4d": { stay: "", transport: "", experience: "" }
+  day: { transport: AFFILIATE_LINKS.transport, experience: AFFILIATE_LINKS.experience, evening: AFFILIATE_LINKS.evening },
+  "1n2d": { stay: AFFILIATE_LINKS.stay, transport: AFFILIATE_LINKS.transport, experience: AFFILIATE_LINKS.experience },
+  "2n3d": { stay: AFFILIATE_LINKS.stay, transport: AFFILIATE_LINKS.transport, experience: AFFILIATE_LINKS.experience },
+  "3n4d": { stay: AFFILIATE_LINKS.stay, transport: AFFILIATE_LINKS.transport, experience: AFFILIATE_LINKS.experience }
 };
 
 const plans = {
