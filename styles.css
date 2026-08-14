@@ -20,18 +20,22 @@
 .booking-shell{padding-top:64px;padding-bottom:72px}.booking-top{margin-bottom:32px}.visual-booking{padding-top:58px;padding-bottom:64px}.visual-booking-head{margin-bottom:32px}.order-section{padding-top:64px;padding-bottom:70px}.order-steps{margin-top:36px}.decision-section{min-height:0}.decision-photo{min-height:520px}.decision-content{padding-top:64px;padding-bottom:64px}.faq{padding-top:70px;padding-bottom:74px}.closing{padding-top:66px;padding-bottom:68px}
 @media(max-width:860px){.booking-shell{padding-top:50px;padding-bottom:56px}.visual-booking{padding-top:50px;padding-bottom:54px}.order-section{padding-top:56px;padding-bottom:60px}.decision-photo{min-height:420px}.decision-content{padding-top:56px;padding-bottom:58px}.faq{padding-top:58px;padding-bottom:60px}.closing{padding-top:58px;padding-bottom:60px}}
 
-/* Keep the editorial layout composed on wide displays instead of stretching it. */
-.hero{width:min(100%,1680px);height:clamp(640px,78svh,760px);margin-inline:auto}
-.site-header{left:50%;right:auto;width:min(100%,1680px);transform:translateX(-50%)}
+/* Keep every section full-bleed while constraining only the inner reading width. */
+html,body,main{width:100%;min-width:320px}
+.hero{width:100%;height:clamp(640px,78svh,760px);margin:0}
+.site-header{left:0;right:0;width:100%;transform:none}
 .hero-content{margin-left:max(30px,calc((100% - 1440px)/2))}
 .hero-lines{left:max(24px,calc((100% - 1510px)/2));right:max(24px,calc((100% - 1510px)/2))}
 .hero-proof{left:max(30px,calc((100% - 1440px)/2))}
 .hero-coordinate{right:max(30px,calc((100% - 1440px)/2))}
-.booking-shell,.visual-booking,.decision-section,.faq{max-width:1480px}
+.booking-shell,.visual-booking,.decision-section,.faq{width:100%;max-width:none}
+.booking-top,.duration-tabs,.plan-dashboard,.visual-booking-head,.visual-booking-grid{max-width:1480px;margin-left:auto;margin-right:auto}
+.decision-content>*{max-width:760px}
+.faq{grid-template-columns:minmax(280px,430px) minmax(520px,760px);justify-content:center;gap:clamp(50px,8vw,150px)}
 .order-title,.order-steps{max-width:1320px;margin-left:auto;margin-right:auto}
 .closing{padding-left:max(30px,calc((100vw - 1320px)/2));padding-right:max(30px,calc((100vw - 1320px)/2))}
 footer{padding-left:max(30px,calc((100vw - 1480px)/2));padding-right:max(30px,calc((100vw - 1480px)/2))}
-@media(max-width:860px){.site-header{left:0;right:0;width:auto;transform:none}.hero{width:100%;height:100svh;min-height:680px}.hero-content{margin:0 24px}.hero-lines{left:22px;right:22px}.hero-proof{left:0}.booking-shell,.visual-booking,.decision-section,.faq{max-width:none}}
+@media(max-width:860px){.site-header{left:0;right:0;width:auto;transform:none}.hero{width:100%;height:100svh;min-height:680px}.hero-content{margin:0 24px}.hero-lines{left:22px;right:22px}.hero-proof{left:0}.booking-shell,.visual-booking,.decision-section,.faq{max-width:none}.faq{grid-template-columns:1fr;justify-content:stretch}}
 
 /* Policy pages */
 .affiliate-note a{display:inline-block;margin-left:4px;color:var(--red);font-weight:700;border-bottom:1px solid rgba(169,51,33,.35)}
