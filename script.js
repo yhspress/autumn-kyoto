@@ -1,6 +1,6 @@
 const AFFILIATE_LINKS = Object.freeze({
   stay: "https://kr.trip.com/hotels/list?city=734&display=%EA%B5%90%ED%86%A0&optionId=734&optionType=City&optionName=%EA%B5%90%ED%86%A0&Allianceid=9886696&SID=328568199&trip_sub1=autumnkyoto_stay&trip_sub3=D19242778",
-  osakaStay: "https://kr.trip.com/hotels/osaka-hotels-list-219/?Allianceid=9886696&SID=328568199&trip_sub1=autumnkyoto_osaka_stay&trip_sub3=D19242778",
+  osakaStay: "https://kr.trip.com/hotels/osaka-hotels-list-219/?Allianceid=9886696&SID=328568199&trip_sub1=autumnkyoto_osaka_stay&trip_sub3=D19248042",
   transport: "https://kr.trip.com/trains/tt-common/ttlist?departurecitycode=JP03869&arrivalcitycode=JP00531&Allianceid=9886696&SID=328568199&trip_sub1=autumnkyoto_transport&trip_sub3=D19242778",
   experience: "https://kr.trip.com/things-to-do/experiences/kyoto/?Allianceid=9886696&SID=328568199&trip_sub1=autumnkyoto_experience&trip_sub3=D19242778",
   evening: "https://kr.trip.com/things-to-do/detail/106174530/?Allianceid=9886696&SID=328568199&trip_sub1=autumnkyoto_evening&trip_sub3=D19242778"
@@ -76,7 +76,7 @@ const LOCAL_PLACES = Object.freeze({
     route: "차완자카 → 기요미즈데라 → 산넨자카",
     tip: "상점은 아직 닫혀 있을 수 있으니 풍경을 먼저 보고, 식사와 쇼핑은 내려온 뒤에 즐기세요.",
     image: "pexels-kiyomizudera-hero.png",
-    source: "https://kyoto.travel/en/travel-inspiration/11-secret-tips-for-enjoying-kyoto-from-a-local-taxi-driver/"
+    source: "https://kyoto.travel/ko/travel-inspiration/11-secret-tips-for-enjoying-kyoto-from-a-local-taxi-driver/"
   },
   east: {
     kicker: "교토 택시기사 이와마 · EAST KYOTO",
@@ -86,7 +86,7 @@ const LOCAL_PLACES = Object.freeze({
     route: "이마쿠마노 관음사 → 센뉴지 경내 → 운류인",
     tip: "유명 사찰을 많이 넣기보다 이 권역에서 두 곳만 천천히 둘러보는 편이 좋습니다.",
     image: "kyoto-temple-gate.png",
-    source: "https://kyoto.travel/en/travel-inspiration/11-secret-tips-for-enjoying-kyoto-from-a-local-taxi-driver/"
+    source: "https://kyoto.travel/ko/travel-inspiration/11-secret-tips-for-enjoying-kyoto-from-a-local-taxi-driver/"
   },
   ohara: {
     kicker: "교토 거주 필자 애비 · OHARA",
@@ -96,7 +96,7 @@ const LOCAL_PLACES = Object.freeze({
     route: "산젠인 → 오하라 마을길 → 잣코인",
     tip: "두 사찰은 계곡 양쪽에 있으므로 돌아가는 버스 시각을 먼저 확인하세요.",
     image: "kyoto-booking-stay.png",
-    source: "https://kyoto.travel/en/hidden-gems/ohara-tranquil-getaway-to-the-north-of-kyoto/"
+    source: "https://kyoto.travel/ko/hidden-gems/ohara-tranquil-getaway-to-the-north-of-kyoto/"
   },
   takao: {
     kicker: "교토시 공식 관광 가이드 · TAKAO",
@@ -106,7 +106,7 @@ const LOCAL_PLACES = Object.freeze({
     route: "사이묘지 또는 진고지 → 기요타키강 산책",
     tip: "돌계단이 많아 세 곳을 다 보기보다 두 곳만 선택하고 편한 신발을 준비하세요.",
     image: "kyoto-arashiyama.png",
-    source: "https://kyoto.travel/en/hidden-gems/riverside-dining-in-takao/"
+    source: "https://kyoto.travel/ko/hidden-gems/riverside-dining-in-takao/"
   },
   west: {
     kicker: "교토 택시기사 이와마 · WEST KYOTO",
@@ -116,7 +116,7 @@ const LOCAL_PLACES = Object.freeze({
     route: "사가토리이모토 → 오타기 넨부쓰지 또는 로쿠오인",
     tip: "두 사찰은 방향이 달라 한 곳을 골라 주변 골목과 함께 걷는 구성이 좋습니다.",
     image: "kyoto-autumn-hero.png",
-    source: "https://kyoto.travel/en/travel-inspiration/11-secret-tips-for-enjoying-kyoto-from-a-local-taxi-driver/"
+    source: "https://kyoto.travel/ko/travel-inspiration/11-secret-tips-for-enjoying-kyoto-from-a-local-taxi-driver/"
   },
   yamashina: {
     kicker: "교토시 공식 관광 가이드 · YAMASHINA",
@@ -126,7 +126,7 @@ const LOCAL_PLACES = Object.freeze({
     route: "JR 야마시나역 → 비샤몬도 → 운하 → 미사사기역",
     tip: "운하 초입 일부는 비포장일 수 있어 비 온 뒤에는 신발에 유의하세요.",
     image: "kyoto-booking-train.png",
-    source: "https://kyoto.travel/en/destinations/running-course-yamashina/"
+    source: "https://kyoto.travel/ko/destinations/running-course-yamashina/"
   },
   nishikyo: {
     kicker: "교토시 공식 관광 가이드 · RAKUSAI",
@@ -136,7 +136,7 @@ const LOCAL_PLACES = Object.freeze({
     route: "요시미네데라 중심 → 여유가 있으면 오하라노",
     tip: "산쪽 이동이라 돌아오는 버스 시각을 먼저 잡고 일정을 시작하세요.",
     image: "kyoto-booking-night.png",
-    source: "https://kyoto.travel/en/hidden-gems/rakusai-a-pilgrimage-to-the-green-of-western-kyoto/"
+    source: "https://kyoto.travel/ko/hidden-gems/rakusai-a-pilgrimage-to-the-green-of-western-kyoto/"
   }
 });
 

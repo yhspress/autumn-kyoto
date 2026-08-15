@@ -58,6 +58,7 @@ footer{grid-template-columns:1.5fr .62fr .72fr .92fr .55fr;gap:3.6vw}
 .osaka-stay-option strong{display:block;margin-top:5px;font:600 1rem/1.38 var(--serif)}
 .osaka-stay-option p{margin:6px 0 0;color:rgba(255,255,255,.58);font-size:.61rem;line-height:1.55}
 .osaka-stay-option>a{min-width:142px;padding:12px 13px;background:var(--gold);color:var(--forest);font-size:.62rem;font-weight:800;text-align:center;transition:background .2s ease,transform .2s ease}
+.osaka-stay-option>a small{display:block;margin-bottom:2px;font:800 .45rem var(--latin);letter-spacing:.12em;color:rgba(20,37,30,.66)}
 .osaka-stay-option>a span{display:inline;margin-left:6px;color:inherit;font:inherit}
 .osaka-stay-option>a:hover{background:#e0b46f;transform:translateY(-1px)}
 .osaka-stay-option>a:focus-visible{outline:3px solid #fff;outline-offset:3px}
