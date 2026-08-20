@@ -140,3 +140,7 @@ body.modal-open{overflow:hidden}
 .language-switch{gap:3px;padding:3px 4px;font-size:.52rem;letter-spacing:.035em}.language-switch a{min-width:64px;padding:0 9px}
 @media(max-width:1080px){.site-header nav{gap:clamp(12px,1.5vw,24px)}.language-switch a{min-width:58px;padding:0 7px}}
 @media(max-width:860px){.site-header nav .language-switch{align-self:stretch;justify-content:center}.site-header nav .language-switch a{flex:1;height:32px}.policy-header-actions .language-switch a{min-width:58px}}
+
+/* Compact, clearly separated Korean / English labels */
+.language-switch{gap:8px;padding:0;border:0;border-radius:0;background:transparent;font-size:.64rem;letter-spacing:0}.language-switch a,.policy-header-actions .language-switch a{display:inline;color:#fff;min-width:0!important;height:auto;padding:0;border-radius:0;background:transparent!important}.language-switch a.active{color:#fff;text-decoration:underline;text-underline-offset:4px}.language-switch a:hover{color:#f3c47d}.language-switch a:after{display:none!important}
+@media(max-width:860px){.site-header nav .language-switch{align-self:flex-start;justify-content:flex-start;gap:10px}.site-header nav .language-switch a{flex:none;height:auto}}
