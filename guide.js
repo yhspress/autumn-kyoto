@@ -14,3 +14,11 @@ if (menuButton && navigation) {
     });
   });
 }
+
+const selectedPlan = new URLSearchParams(window.location.search).get("plan");
+const validPlans = new Set(["day", "1n2d", "2n3d", "3n4d"]);
+if (document.documentElement.lang === "en" && validPlans.has(selectedPlan)) {
+  document.querySelectorAll('a[href^="index-en.html"]').forEach(link => {
+    link.href = `index-en.html?plan=${encodeURIComponent(selectedPlan)}#book`;
+  });
+}
