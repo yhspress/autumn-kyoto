@@ -18,7 +18,7 @@ const plans = {
     number: "01", label: "DAY TRIP · EAST KYOTO", title: "동쪽 교토 핵심 예약",
     description: "오사카에서 출발해 기요미즈데라·기온·에이칸도를 잇는 하루. 숙소 대신 왕복 교통과 시간 지정 체험을 먼저 확인하세요.",
     route: "기요미즈데라 → 기온 → 에이칸도", priority: "체험 → 교통 → 식사", check: "마지막 열차 시간",
-    image: "kyoto-temple-gate.png", imageLabel: "HIGASHIYAMA · 08:00",
+    image: "kyoto-temple-gate.webp", imageLabel: "HIGASHIYAMA · 08:00",
     products: [
       { key:"transport", icon:"券", type:"TRANSPORT", title:"오사카 ↔ 교토 왕복 교통", copy:"출발역과 귀가 시간을 기준으로 개별 운임과 패스를 비교하세요.", meta:["포함 구간 확인","실물 교환 여부"], price:"판매처 실시간 가격", cta:"교통 옵션 비교" },
       { key:"experience", icon:"茶", type:"TIME-SLOT EXPERIENCE", title:"기온·히가시야마 다도 체험", copy:"기요미즈데라와 기온 사이에 넣기 쉬운 시간 지정 체험입니다.", meta:["무료 취소 기한","시작 15분 전 도착"], price:"시간별 잔여석 확인", cta:"체험 시간 확인" },
@@ -29,7 +29,7 @@ const plans = {
     number:"02", label:"1 NIGHT · EAST + WEST", title:"동쪽과 서쪽 예약 세트",
     description:"첫날 히가시야마의 저녁과 둘째 날 아라시야마의 아침을 묶는 구성. 숙소의 위치가 일정 완성도를 가장 크게 좌우합니다.",
     route:"히가시야마 → 가와라마치 → 아라시야마", priority:"숙소 → 체험 → 교통", check:"체크인·짐 보관",
-    image:"kyoto-arashiyama.png", imageLabel:"ARASHIYAMA · 06:50",
+    image:"kyoto-arashiyama.webp", imageLabel:"ARASHIYAMA · 06:50",
     products:[
       { key:"stay", icon:"宿", type:"STAY", title:"가와라마치·기온 숙소 1박", copy:"첫날 저녁 산책과 둘째 날 서쪽 이동이 편한 지역을 우선 비교하세요.", meta:["무료 취소 여부","짐 보관 확인"], price:"1박 최저가 비교", cta:"숙소 가격 확인" },
       { key:"transport", icon:"鉄", type:"TRANSPORT", title:"아라시야마 이동 교통", copy:"JR·한큐·란덴 중 숙소 위치와 첫 방문지에 맞는 노선을 고르세요.", meta:["첫차 시간","패스 포함 구간"], price:"노선별 가격 확인", cta:"교통 옵션 비교" },
@@ -40,7 +40,7 @@ const plans = {
     number:"03", label:"2 NIGHTS · BALANCED KYOTO", title:"교토 3개 권역 예약 세트",
     description:"히가시야마·아라시야마·북쪽 교토를 하루 한 권역씩. 같은 숙소에서 2박하면 짐 이동 없이 예약을 단순화할 수 있습니다.",
     route:"동쪽 교토 → 아라시야마 → 북쪽 교토", priority:"숙소 → 교통 → 체험", check:"연박 조건·노선 범위",
-    image:"kyoto-tea.png", imageLabel:"NISHIJIN · 15:30",
+    image:"kyoto-tea.webp", imageLabel:"NISHIJIN · 15:30",
     products:[
       { key:"stay", icon:"宿", type:"STAY", title:"교토 중심부 숙소 2박", copy:"가와라마치 또는 교토역에서 동일 객실 연박 가격을 비교하세요.", meta:["연박 총액","무료 취소 여부"], price:"2박 총액 비교", cta:"숙소 가격 확인" },
       { key:"transport", icon:"乗", type:"CITY TRANSPORT", title:"3일 교통 조합", copy:"하루 한 권역 기준으로 개별 결제와 교통 패스의 총액을 비교합니다.", meta:["JR 포함 여부","버스 혼잡 고려"], price:"패스·개별 운임 비교", cta:"교통권 비교" },
@@ -51,7 +51,7 @@ const plans = {
     number:"04", label:"3 NIGHTS · SLOW KYOTO", title:"교토 깊이 여행 예약 세트",
     description:"대표 권역 세 곳에 우지 또는 오하라를 더하는 일정. 숙소 3박을 먼저 확보하고 근교 이동과 체험을 차례로 조합하세요.",
     route:"히가시야마 → 아라시야마 → 북쪽 → 근교", priority:"숙소 → 근교 교통 → 체험", check:"3박 총액·근교 운행일",
-    image:"kyoto-arashiyama.png", imageLabel:"UJI / OHARA · DAY 04",
+    image:"kyoto-arashiyama.webp", imageLabel:"UJI / OHARA · DAY 04",
     products:[
       { key:"stay", icon:"宿", type:"STAY", title:"교토 중심부 숙소 3박", copy:"세금과 조식 포함 여부까지 적용한 최종 결제 금액을 비교하세요.", meta:["최종 총액","객실 변경 조건"], price:"3박 총액 비교", cta:"숙소 가격 확인" },
       { key:"transport", icon:"郊", type:"DAY-TRIP TRANSPORT", title:"우지 또는 오하라 교통", copy:"선택한 근교에 따라 JR·게이한 또는 버스의 운행 시간표를 확인하세요.", meta:["왕복 소요 시간","막차·막차 버스"], price:"노선별 운임 확인", cta:"근교 교통 비교" },
@@ -61,10 +61,10 @@ const plans = {
 };
 
 const productImages = {
-  stay: "kyoto-booking-stay.png",
-  transport: "kyoto-booking-train.png",
-  experience: "kyoto-tea.png",
-  evening: "kyoto-booking-night.png"
+  stay: "kyoto-booking-stay.webp",
+  transport: "kyoto-booking-train.webp",
+  experience: "kyoto-tea.webp",
+  evening: "kyoto-booking-night.webp"
 };
 
 const LOCAL_PLACES = Object.freeze({
@@ -75,7 +75,7 @@ const LOCAL_PLACES = Object.freeze({
     time: "개문 직후 이른 아침",
     route: "차완자카 → 기요미즈데라 → 산넨자카",
     tip: "상점은 아직 닫혀 있을 수 있으니 풍경을 먼저 보고, 식사와 쇼핑은 내려온 뒤에 즐기세요.",
-    image: "pexels-kiyomizudera-hero.png",
+    image: "pexels-kiyomizudera-hero.webp",
     source: "https://kyoto.travel/ko/travel-inspiration/11-secret-tips-for-enjoying-kyoto-from-a-local-taxi-driver/"
   },
   east: {
@@ -85,7 +85,7 @@ const LOCAL_PLACES = Object.freeze({
     time: "오전 또는 늦은 오후",
     route: "이마쿠마노 관음사 → 센뉴지 경내 → 운류인",
     tip: "유명 사찰을 많이 넣기보다 이 권역에서 두 곳만 천천히 둘러보는 편이 좋습니다.",
-    image: "kyoto-temple-gate.png",
+    image: "kyoto-temple-gate.webp",
     source: "https://kyoto.travel/ko/travel-inspiration/11-secret-tips-for-enjoying-kyoto-from-a-local-taxi-driver/"
   },
   ohara: {
@@ -95,7 +95,7 @@ const LOCAL_PLACES = Object.freeze({
     time: "오전 출발 · 반나절 이상",
     route: "산젠인 → 오하라 마을길 → 잣코인",
     tip: "두 사찰은 계곡 양쪽에 있으므로 돌아가는 버스 시각을 먼저 확인하세요.",
-    image: "kyoto-booking-stay.png",
+    image: "kyoto-booking-stay.webp",
     source: "https://kyoto.travel/ko/hidden-gems/ohara-tranquil-getaway-to-the-north-of-kyoto/"
   },
   takao: {
@@ -105,7 +105,7 @@ const LOCAL_PLACES = Object.freeze({
     time: "시내보다 이른 단풍 시기",
     route: "사이묘지 또는 진고지 → 기요타키강 산책",
     tip: "돌계단이 많아 세 곳을 다 보기보다 두 곳만 선택하고 편한 신발을 준비하세요.",
-    image: "kyoto-arashiyama.png",
+    image: "kyoto-arashiyama.webp",
     source: "https://kyoto.travel/ko/hidden-gems/riverside-dining-in-takao/"
   },
   west: {
@@ -115,7 +115,7 @@ const LOCAL_PLACES = Object.freeze({
     time: "오전, 대나무숲 이후",
     route: "사가토리이모토 → 오타기 넨부쓰지 또는 로쿠오인",
     tip: "두 사찰은 방향이 달라 한 곳을 골라 주변 골목과 함께 걷는 구성이 좋습니다.",
-    image: "kyoto-autumn-hero.png",
+    image: "kyoto-autumn-hero.webp",
     source: "https://kyoto.travel/ko/travel-inspiration/11-secret-tips-for-enjoying-kyoto-from-a-local-taxi-driver/"
   },
   yamashina: {
@@ -125,7 +125,7 @@ const LOCAL_PLACES = Object.freeze({
     time: "오전 또는 오후 산책",
     route: "JR 야마시나역 → 비샤몬도 → 운하 → 미사사기역",
     tip: "운하 초입 일부는 비포장일 수 있어 비 온 뒤에는 신발에 유의하세요.",
-    image: "kyoto-booking-train.png",
+    image: "kyoto-booking-train.webp",
     source: "https://kyoto.travel/ko/destinations/running-course-yamashina/"
   },
   nishikyo: {
@@ -135,7 +135,7 @@ const LOCAL_PLACES = Object.freeze({
     time: "아침 · 반나절",
     route: "요시미네데라 중심 → 여유가 있으면 오하라노",
     tip: "산쪽 이동이라 돌아오는 버스 시각을 먼저 잡고 일정을 시작하세요.",
-    image: "kyoto-booking-night.png",
+    image: "kyoto-booking-night.webp",
     source: "https://kyoto.travel/ko/hidden-gems/rakusai-a-pilgrimage-to-the-green-of-western-kyoto/"
   }
 });
