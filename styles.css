@@ -153,3 +153,6 @@ html[lang="en"]{--sans:"DM Sans",sans-serif;--serif:"Playfair Display",serif}
 
 /* Accessibility: readable small text on light surfaces. */
 .booking-top-copy,.duration-tab>span,.duration-tab small,.duration-tab b,.plan-overview>p,.plan-overview dt,.overview-top span,.product-copy p,.product-action>span,.affiliate-note p{color:#64625b}
+
+/* Accessibility: remaining contrast fixes reported by Lighthouse. */
+.osaka-stay-option>a small{color:var(--forest)}.local-edit-head>p{color:#64625b}.footer-brand p,.footer-links p,.copyright{color:rgba(255,255,255,.72)}
