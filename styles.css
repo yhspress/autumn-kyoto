@@ -147,3 +147,9 @@ body.modal-open{overflow:hidden}
 
 /* Performance: LCP images are real responsive images instead of CSS backgrounds. */
 .hero-photo,.prep-hero-photo{background-image:none}.hero-photo img,.prep-hero-photo img{display:block;width:100%;height:100%;object-fit:cover}.prep-hero-photo img{object-position:center 48%}
+
+/* English pages do not download the large Korean font stylesheet. */
+html[lang="en"]{--sans:"DM Sans",sans-serif;--serif:"Playfair Display",serif}
+
+/* Accessibility: readable small text on light surfaces. */
+.booking-top-copy,.duration-tab>span,.duration-tab small,.duration-tab b,.plan-overview>p,.plan-overview dt,.overview-top span,.product-copy p,.product-action>span,.affiliate-note p{color:#64625b}

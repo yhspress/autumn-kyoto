@@ -40,7 +40,7 @@ export async function onRequest(context) {
 
   if (url.pathname === "/" || url.pathname === "/index.html") {
     if (preferredLocale(context.request) === "en") {
-      url.pathname = "/index-en.html";
+      url.pathname = "/index-en";
       return redirect(url);
     }
   }
