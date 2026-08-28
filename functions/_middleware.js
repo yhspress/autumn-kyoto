@@ -8,9 +8,13 @@ function readCookie(request, name) {
 }
 
 function preferredLocale(request) {
+  // The country rule is the default for the root URL. Korean visitors
+  // always start on Korean, while an explicit English URL still remains available.
+  if (request.cf?.country === "KR") return "ko";
+
   const saved = readCookie(request, LOCALE_COOKIE);
   if (saved === "ko" || saved === "en") return saved;
-  return request.cf?.country === "KR" ? "ko" : "en";
+  return "en";
 }
 
 function localeCookie(locale) {
