@@ -156,3 +156,38 @@ html[lang="en"]{--sans:"DM Sans",sans-serif;--serif:"Playfair Display",serif}
 
 /* Accessibility: remaining contrast fixes reported by Lighthouse. */
 .osaka-stay-option>a small{color:var(--forest)}.local-edit-head>p{color:#64625b}.footer-brand p,.footer-links p,.copyright{color:rgba(255,255,255,.72)}
+/* Booking decisions: retain the established forest, paper and autumn palette. */
+.booking-choice{max-width:1480px;margin:0 auto 24px;padding:22px 24px;border:1px solid var(--line);background:var(--white)}
+.booking-choice h3{font-size:1.125rem;margin:0 0 8px}.booking-choice p{font-size:1rem;margin:0 0 14px;color:#55564f}
+#booking-shortcuts{display:flex;gap:10px;flex-wrap:wrap}#booking-shortcuts a{display:inline-flex;align-items:center;min-height:44px;padding:10px 16px;border:1px solid var(--forest);font-size:1rem;font-weight:700;color:var(--forest)}
+#booking-shortcuts a:hover{background:var(--forest);color:#fff}
+.click-note{font-size:.875rem;color:#55564f;margin:0 0 20px}.click-status{font-size:.875rem;color:#55564f}
+.booking-shell .plan-dashboard{grid-template-columns:minmax(240px,.7fr) minmax(0,1.8fr) minmax(230px,.65fr)}
+.booking-shell .product-card{grid-template-columns:58px minmax(0,1fr);gap:16px;align-items:start;padding:20px;scroll-margin-top:24px;transform:none}
+.booking-shell .product-thumb{width:58px;height:72px}
+.booking-shell .product-copy small{font-size:.875rem;letter-spacing:.04em}.booking-shell .product-copy h4{font-size:1.125rem;line-height:1.5;margin:4px 0 10px}
+.booking-shell .product-copy p{font-size:1rem;line-height:1.75}.recommendation b{color:var(--red)}
+.booking-facts{margin:16px 0 0}.booking-facts>div{padding:10px 0;border-top:1px solid var(--line)}.booking-facts dt{font-size:.875rem;font-weight:700;color:var(--forest)}.booking-facts dd{margin:3px 0 0;font-size:1rem;line-height:1.7;color:#55564f}
+.booking-shell .product-action{grid-column:1/-1;text-align:left;min-width:0;border-top:1px solid var(--line);padding-top:14px;display:block}
+.seller-destination{font-size:.875rem;line-height:1.65;color:#55564f;margin:0 0 12px}
+a.booking-cta{display:inline-flex;justify-content:center;align-items:center;min-height:48px;font-size:1rem;line-height:1.5;padding:12px 16px;text-align:center;white-space:normal}
+.seller-note,.booking-shell .product-action>.seller-note{display:block;margin:10px 0 0;font-size:.875rem;line-height:1.6;color:#55564f}
+.booking-shell .duration-tab{min-height:104px}.booking-shell .duration-tab small,.booking-shell .duration-tab b{font-size:.875rem;letter-spacing:0}.booking-shell .duration-tab strong{font-size:1.125rem}
+.booking-shell .plan-overview>p,.booking-shell .plan-overview dd,.booking-shell .booking-top-copy{font-size:1rem}.booking-shell .plan-overview dt,.booking-shell .column-heading span{font-size:.875rem}
+.booking-shell .checkout-guide li strong{font-size:1rem}.booking-shell .checkout-guide li p,.booking-shell .guide-alert p{font-size:.875rem;color:#dfdfd6}
+.booking-shell .affiliate-note{grid-template-columns:1fr}.booking-shell .affiliate-note span,.booking-shell .affiliate-note p{font-size:.875rem}
+.local-booking{border-top:1px solid var(--line);padding-top:20px;margin-top:24px}.local-booking h3{font-size:1.125rem;margin:0 0 8px}.local-booking p{font-size:1rem;line-height:1.7;color:#55564f}.local-booking-links{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.place-modal .place-modal-intro,.place-modal .place-modal-facts dd{font-size:1rem}.place-modal .place-modal-facts dt,.place-modal .place-modal-bottom p,.place-modal .place-modal-bottom a{font-size:.875rem}
+.place-modal .place-modal-close{position:sticky;top:12px;right:auto;grid-column:1/-1;justify-self:end;margin:12px 12px -56px 0;min-width:44px;min-height:44px}
+.booking-return{padding:56px max(24px,calc((100vw - 1480px)/2));background:var(--paper2)}.booking-return h2{font:600 clamp(1.75rem,3vw,2.6rem)/1.4 var(--serif);margin:0 0 24px}.booking-return-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.booking-return-grid article{display:flex;flex-direction:column;padding:24px;background:var(--white);border:1px solid var(--line)}.booking-return-grid h3{font-size:1.125rem;margin:0 0 10px}.booking-return-grid p{font-size:1rem;color:#55564f;flex:1;margin:0 0 20px}.return-plan-link{display:inline-flex;min-height:44px;align-items:center;margin-top:16px;font-size:1rem;text-decoration:underline}
+.city-products a{grid-template-columns:minmax(0,1fr);gap:10px;padding:20px 0;min-height:48px}.city-products small{font-size:.875rem}.city-products strong{font-size:1.125rem}.city-products .city-conditions{font-size:1rem;line-height:1.7;color:#55564f}.city-products .city-cta{font-size:1rem;min-height:44px;display:flex;align-items:center;font-weight:700;color:var(--red)}
+a.booking-cta:focus-visible,#booking-shortcuts a:focus-visible,.return-plan-link:focus-visible,.city-products a:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+@media(max-width:1280px){.booking-shell .plan-dashboard{grid-template-columns:minmax(240px,.7fr) minmax(0,1.6fr)}.booking-shell .checkout-guide{grid-column:1/-1}.booking-shell .checkout-guide ul{display:grid;grid-template-columns:1fr 1fr;gap:0 28px}}
+@media(max-width:860px){.booking-shell .plan-dashboard{grid-template-columns:minmax(0,1fr)}.booking-shell .booking-column{padding:28px 20px}.booking-return-grid{grid-template-columns:1fr}.booking-return{padding:40px 20px}.booking-shell .overview-image{height:120px}.booking-shell .plan-overview{padding:24px 20px}.booking-shell .plan-overview h3{margin-top:16px}}
+@media(max-width:540px){.booking-shell .product-card{grid-template-columns:minmax(0,1fr);padding:18px}.booking-shell .product-thumb{display:none}.booking-shell .product-action{grid-column:1}.booking-choice{padding:18px}.booking-choice h3{font-size:1.125rem}#booking-shortcuts{display:grid;grid-template-columns:1fr}#booking-shortcuts a{width:100%}.booking-shell .checkout-guide ul{grid-template-columns:1fr}.local-booking-links{grid-template-columns:1fr}.booking-toast{max-width:calc(100vw - 32px);width:max-content;font-size:.875rem;pointer-events:none}.menu-toggle{min-width:44px;min-height:44px}.place-modal .place-modal-image{min-height:150px;height:20svh}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.booking-toast,.product-card{transition:none}}
+html[lang="ko"] body{word-break:keep-all;overflow-wrap:anywhere}
+html,body,main{min-width:0}
+a.booking-cta{width:100%}
+.booking-shell .osaka-stay-option p{font-size:1rem}.booking-shell .osaka-stay-option>a{font-size:1rem;min-height:48px}.booking-shell .osaka-stay-option small{font-size:.875rem}
+@media(max-width:540px){.hero h1{font-size:clamp(2rem,9vw,2.5rem)}.hero-content>p:not(.eyebrow),.hero-actions a{font-size:1rem}.booking-shell .product-card{padding:16px}.booking-shell .booking-column{padding:24px 16px}}

@@ -21,7 +21,7 @@ const plans = {
     image: "kyoto-temple-gate.webp", imageLabel: "HIGASHIYAMA · 08:00",
     products: [
       { key:"transport", icon:"券", type:"TRANSPORT", title:"오사카 ↔ 교토 왕복 교통", copy:"출발역과 귀가 시간을 기준으로 개별 운임과 패스를 비교하세요.", meta:["포함 구간 확인","실물 교환 여부"], price:"판매처 실시간 가격", cta:"교통 옵션 비교" },
-      { key:"experience", icon:"茶", type:"TIME-SLOT EXPERIENCE", title:"기온·히가시야마 다도 체험", copy:"기요미즈데라와 기온 사이에 넣기 쉬운 시간 지정 체험입니다.", meta:["무료 취소 기한","시작 15분 전 도착"], price:"시간별 잔여석 확인", cta:"체험 시간 확인" },
+      { key:"experience", icon:"茶", type:"TIME-SLOT EXPERIENCE", title:"기온·히가시야마 다도 체험", copy:"기요미즈데라와 기온 사이에 넣기 쉬운 시간 지정 체험입니다.", meta:["무료 취소 기한","도착 안내 확인"], price:"시간별 잔여석 확인", cta:"체험 시간 확인" },
       { key:"evening", icon:"灯", type:"EVENING OPTION", title:"야간 단풍 또는 저녁 투어", copy:"귀가 열차와 종료 시간을 함께 확인한 뒤 마지막 일정으로 추가하세요.", meta:["종료 시간 확인","귀가 동선 점검"], price:"운영일·가격 확인", cta:"저녁 일정 비교" }
     ]
   },
@@ -141,7 +141,7 @@ const LOCAL_PLACES = Object.freeze({
 });
 
 let currentDuration = "day";
-const completed = new Set();
+const visitedProducts = new Set();
 const tabs = [...document.querySelectorAll(".duration-tab")];
 const productList = document.querySelector("#product-list");
 const toast = document.querySelector("#booking-toast");
@@ -150,16 +150,11 @@ const placeModalClose = placeModal.querySelector(".place-modal-close");
 let placeModalReturnFocus = null;
 
 function productCard(product) {
-  const isDone = completed.has(`${currentDuration}:${product.key}`);
-  return `<article class="product-card${isDone ? " completed" : ""}" data-product="${product.key}">
-    <div class="product-thumb" style="background-image:url(&quot;${productImages[product.key]}&quot;)"><span>${product.icon}</span></div>
-    <div class="product-copy"><small>${product.type}</small><h4>${product.title}</h4><p>${product.copy}</p><div class="product-meta">${product.meta.map(item => `<span>${item}</span>`).join("")}</div></div>
-    <div class="product-action"><span>${product.price}</span><button class="booking-cta" type="button" data-key="${product.key}">${isDone ? "다시 확인" : product.cta}</button></div>
-  </article>`;
+  return KyotoBooking.card(product, currentDuration, BOOKING_LINKS, productImages, visitedProducts);
 }
 
 function updateProgress() {
-  const done = plans[currentDuration].products.filter(product => completed.has(`${currentDuration}:${product.key}`)).length;
+  const done = plans[currentDuration].products.filter(product => visitedProducts.has(`${currentDuration}:${product.key}`)).length;
   const total = plans[currentDuration].products.length;
   document.querySelector("#checked-count").textContent = String(done);
   document.querySelector("#progress-bar").style.width = `${(done / total) * 100}%`;
@@ -184,6 +179,7 @@ function openPlaceModal(key, trigger) {
   modalImage.style.backgroundImage = `url("${place.image}")`;
   modalImage.setAttribute("aria-label", `${place.title} 분위기 이미지`);
   document.querySelector("#place-modal-link").href = place.source;
+  KyotoBooking.local(key, AFFILIATE_LINKS);
   placeModalReturnFocus = trigger;
   placeModal.hidden = false;
   document.body.classList.add("modal-open");
@@ -210,6 +206,7 @@ function renderPlan(duration) {
   document.querySelector("#plan-image-label").textContent = plan.imageLabel;
   document.querySelector("#plan-image").style.backgroundImage = `url("${plan.image}")`;
   productList.innerHTML = plan.products.map(productCard).join("");
+  KyotoBooking.choices(plan);
   tabs.forEach(tab => {
     const active = tab.dataset.duration === duration;
     tab.classList.toggle("active", active);
@@ -234,16 +231,11 @@ tabs.forEach((tab, index) => {
 });
 
 productList.addEventListener("click", event => {
-  const button = event.target.closest(".booking-cta");
-  if (!button) return;
-  const key = button.dataset.key;
-  const link = BOOKING_LINKS[currentDuration][key];
-  completed.add(`${currentDuration}:${key}`);
-  if (link) {
-    window.open(link, "_blank", "noopener,noreferrer");
-    showToast("판매처가 새 창에서 열렸습니다. 실제 예약 완료 여부는 판매처에서 확인하세요.");
-  } else showToast("제휴 예약 링크를 연결하면 판매처의 가격·조건 페이지로 이동합니다.");
-  renderPlan(currentDuration);
+  const link = event.target.closest(".booking-cta");
+  if (!link) return;
+  visitedProducts.add(`${currentDuration}:${link.dataset.key}`);
+  updateProgress();
+  showToast("예약 링크를 선택했습니다. 예약·결제 완료는 Trip.com에서 확인하세요.");
 });
 
 document.querySelector("#save-plan").addEventListener("click", () => {
@@ -274,18 +266,7 @@ document.addEventListener("keydown", event => {
     closePlaceModal();
     return;
   }
-  if (event.key !== "Tab") return;
-  const focusable = [...placeModal.querySelectorAll("button, a[href]")].filter(element => !element.hasAttribute("disabled"));
-  if (!focusable.length) return;
-  const first = focusable[0];
-  const last = focusable[focusable.length - 1];
-  if (event.shiftKey && document.activeElement === first) {
-    event.preventDefault();
-    last.focus();
-  } else if (!event.shiftKey && document.activeElement === last) {
-    event.preventDefault();
-    first.focus();
-  }
+
 });
 
 const osakaStayLink = document.querySelector("#osaka-stay-link");
